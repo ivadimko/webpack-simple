@@ -1,4 +1,4 @@
-# Simple webpack boilerplate
+# Simple webpack boilerplate for THREE.js experiments
 
 Simple webpack start template based on webpack 4
 

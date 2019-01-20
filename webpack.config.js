@@ -46,6 +46,25 @@ module.exports = {
           ],
         }),
       },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                quality: 85,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   output: {
