@@ -1,12 +1,16 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: './src/index.html',
   filename: './index.html',
 });
 const cssPlugin = new ExtractTextPlugin('css/[name].[hash].css');
+const copyPlugin = new CopyPlugin([
+  { from: 'public/', to: './' },
+]);
 
 module.exports = {
   module: {
@@ -70,7 +74,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[chunkhash].js',
   },
-  plugins: [htmlPlugin, cssPlugin],
+  plugins: [htmlPlugin, cssPlugin, copyPlugin],
   resolve: {
     extensions: ['.js'],
     alias: {
